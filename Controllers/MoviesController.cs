@@ -12,6 +12,7 @@ namespace Vidly.Controllers
     public class MoviesController : Controller
     {
         // GET: Movies/Random
+        [Route("movies/Random")]
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Shreak!" };
@@ -74,6 +75,13 @@ namespace Vidly.Controllers
 
         }
 
+        [Route("movies/Detail")]
+        public ActionResult Detail()
+        {
+            var movie = new Movie() { Name = "hhhhh" };
+            return View(movie);
+        }
+
 
         // MVCRouteAttribute
         [Route("movies/released/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1,12)}")]
@@ -82,7 +90,7 @@ namespace Vidly.Controllers
             return Content(year+"/"+month);
         }
 
-
+    
 
     }
 }
