@@ -14,6 +14,12 @@ namespace Vidly.Controllers
             return View();
         }
 
+        [Route("")]
+        public ActionResult GetCustomers()
+        {
+
+        }
+
         //public ActionResult GetCustomer()
         //{
             
