@@ -23,6 +23,7 @@ namespace Vidly.ViewModels
         [Required]
         public DateTime? ReleaseDate { get; set; }
 
+
         [Display(Name = "Number in Stock")]
         //[MoreThanOneNumberInStock]    
         [Range(1, 20)]
