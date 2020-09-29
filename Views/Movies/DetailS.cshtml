@@ -6,4 +6,8 @@
 }
 
 <h2>@Model.Name</h2>
-
+<li>Genre: @Model.Genre.Name</li>
+@*<li>@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.LongDatePattern</li>*@
+<li>Release Date: @Model.ReleaseDate.ToLongDateString()</li>
+<li>Date Added: @Model.AddedDate.ToLongDateString()</li>
+<li>Number in Stock: @Model.NumberInStock</li>
