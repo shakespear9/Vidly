@@ -8,7 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Vidly.Models
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext   
     {
         public ApplicationDbContext() : base("Vidly.Models.ApplicationDbContext")
         {
