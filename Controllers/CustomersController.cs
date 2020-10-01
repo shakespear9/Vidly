@@ -34,8 +34,9 @@ namespace Vidly.Controllers
         {
             //var customers = GetCustomers();
             // Include = change from LazyLoading to Eager Loading
-            var customers = _context.Customers.Include((x)=> x.MembershipType).ToList();
-            return View(customers);
+            //var customers = _context.Customers.Include((x)=> x.MembershipType).ToList();
+            //return View(customers);
+            return View();
             
         }
 
