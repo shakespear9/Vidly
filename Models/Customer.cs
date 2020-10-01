@@ -13,6 +13,7 @@ namespace Vidly.Models
         public int Id { get; set; }
 
         // data annotation
+        
         [Required(ErrorMessage = "Please enter customer's name.")] // not null
         [StringLength(255)] // data specific length
         public string Name { get; set; }
