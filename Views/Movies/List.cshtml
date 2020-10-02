@@ -7,26 +7,26 @@
 <h2>Movies</h2>
 
 <p>
-    @Html.ActionLink("New Movie", "New", "Movies",null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("New Movie", "New", "Movies", null, new { @class = "btn btn-primary" })
 </p>
 
 
-@if (!Model.Any())
-{
-    <p> we don't have any movies yet</p>
-}
-else
-{
-    <table id="movies" class="table table-bordered table-hover" >
-        <thead>
-            <tr>
-                <th>Movie</th>
-                <th>Genre</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @*@foreach (var movie in Model)
+@*@if (!Model.Any())
+    {
+        <p> we don't have any movies yet</p>
+    }
+    else
+    {*@
+<table id="movies" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Genre</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*@foreach (var movie in Model)
             {
 
 
@@ -39,11 +39,11 @@ else
                 </td>
             </tr>
             }*@
-        </tbody>
-    </table>
+    </tbody>
+</table>
 
 
-}
+@* } *@
 
 
 @section scripts{
@@ -72,7 +72,7 @@ else
                         }
                     }]
             });
-                
+
 
             $("#movies").on("click", ".js-delete", function () {
                 var button = $(this);
@@ -112,6 +112,6 @@ else
     </script>
 
 
-    
-    }
+
+}
 

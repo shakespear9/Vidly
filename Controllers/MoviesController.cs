@@ -103,8 +103,13 @@ namespace Vidly.Controllers
             //    return HttpNotFound();
             //return View(movies);
 
-            var movies = _context.Movies.Include((m) => m.Genre).ToList();
-            return View(movies);
+            if (User.IsInRole(RoleName.CanManageMovie))
+                return View("List");
+
+            return View("ReadOnlyList");
+
+            //var movies = _context.Movies.Include((m) => m.Genre).ToList();
+            //return View(movies);
           
         }
 
@@ -136,7 +141,7 @@ namespace Vidly.Controllers
             return Content(year+"/"+month);
         }
 
-
+        [Authorize(Roles = RoleName.CanManageMovie)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
