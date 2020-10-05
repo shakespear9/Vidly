@@ -83,6 +83,11 @@ namespace Vidly.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(50,ErrorMessage = "The {0} must be at least {2} character long." , MinimumLength = 10)]
+        [DataType(DataType.Password)]
+        public string Phone { get; set; }
     }
 
     public class ResetPasswordViewModel

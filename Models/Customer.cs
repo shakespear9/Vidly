@@ -13,7 +13,7 @@ namespace Vidly.Models
     {
 
         //[DataType(DataType)]
-        [Column(TypeName = "Varchar")]
+        //[Column(TypeName = "Varchar")]
         public int Id { get; set; }
 
         // data annotation
