@@ -14,6 +14,8 @@ namespace Vidly.Models
 
         //[DataType(DataType)]
         //[Column(TypeName = "Varchar")]
+        //[Column("CustomerId", TypeName = "varchar(200)")]
+        //[Key]
         public int Id { get; set; }
 
         // data annotation

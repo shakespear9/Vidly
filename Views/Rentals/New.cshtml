@@ -18,7 +18,7 @@
     <div class="form-group">
         <label>Movie</label>
         <div class="tt-container">
-            <input id="movie" type="text" value="" class="form-control" />
+            <input id="movie" data-rule-atLeastOneMovie="true" type="text" value="" class="form-control" />
         </div>
     </div>
 
@@ -101,9 +101,13 @@
                 return vm.customerId && vm.customerId !== 0;
             }, "Please select a valid customer");
 
-            $("#newRental").validate({
+            $.validator.addMethod("atLeastOneMovie", function () {
+                return vm.movieIds.length > 0;
+            }, "Please select atleast one movie.");
+
+            var validator = $("#newRental").validate({
                 submitHandler: function () {
-                    e.preventDefault();
+                    //e.preventDefault();
 
                     $.ajax({
                         url: "/api/newRentals",
@@ -114,17 +118,30 @@
                             //consloe.log(vm)
                             //console.log("save");
                             toastr.success("Rental successfully recorded.");
+                            $("customer").typeahead("val","")
+                            $("movie").typeahead("val", "")
+                            $("movies").empty();
+
+                            vm = { movieIds: [] };
+
+                            validator.resetForm();
+
                         })
                         .fail(function () {
 
                             toastr.error("Something unexpected happened.");
                         });
+
+                    return false
                 }
             });
 
             //$("#newRental").submit(function (e) {
                
             //})
+
+
+       
 
         });
 
